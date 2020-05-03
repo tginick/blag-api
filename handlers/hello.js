@@ -1,5 +1,5 @@
-import handler from "../lib/handler-lib";
+import newBasicHandler from "../lib/handler-lib";
 
-export const main = handler(async (event, context) => {
-    return "Hello World!";
+export const main = newBasicHandler(async (_event, _context) => {
+    return [200, "Hello World!"];
 });

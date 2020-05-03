@@ -1,8 +1,8 @@
 import dynamoDb from "../lib/dynamodb-lib";
-import handler from "../lib/handler-lib";
+import newBasicHandler from "../lib/handler-lib";
 import { v1 as uuidv1 } from "uuid";
 
-export const main = handler(async (event, context) => {
+export const main = newBasicHandler(async (event, _context) => {
     const data = JSON.parse(event.body);
     const newMessageId = uuidv1();
 
@@ -18,5 +18,5 @@ export const main = handler(async (event, context) => {
     };
 
     await dynamoDb.put(params);
-    return newMessageId;
+    return [202, ""];
 });

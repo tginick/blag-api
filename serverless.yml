@@ -37,6 +37,7 @@ provider:
   environment:
     blagTableName: blagPosts
     emailTableName: blagEmailReqs
+    # auth info for post requests to be loaded from .env
 
 resources:
   - ${file(resources/api-gateway-errors.yml)}
@@ -49,6 +50,23 @@ functions:
           path: newMessage
           method: post
           cors: true
+
+  # no cors
+  updatePortfolio:
+    handler: handlers/updatePortfolio.main
+    events:
+      - http:
+          path: updatePortfolio
+          method: put
+
+  # no cors
+  newBlogPost:
+    handler: handlers/newBlogPost.main
+    events:
+      - http:
+          path: newBlogPost
+          method: post
+
   hello:
     handler: handlers/hello.main
     events:
