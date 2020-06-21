@@ -1,6 +1,6 @@
 import newBasicHandler from "../lib/handler-lib";
 import { checkSecret, isValidSecretLoaded } from "../lib/admin-secret";
-import { v1 as uuidv1 } from "uuid";
+//import { v1 as uuidv1 } from "uuid";
 
 export const main = newBasicHandler(async (event, _context) => {
     if (!isValidSecretLoaded()) {
@@ -12,7 +12,7 @@ export const main = newBasicHandler(async (event, _context) => {
         return [403, ""];
     }
 
-    const newBlogId = uuidv1();
+    //const newBlogId = uuidv1();
 
     return [202, ""];
 });
