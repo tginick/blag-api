@@ -51,6 +51,14 @@ functions:
           method: post
           cors: true
 
+  getTitles:
+    handler: handlers/getLatestTitles.main
+    events:
+      - http:
+          path: titles
+          method: get
+          cors: true
+
   # no cors
   updatePortfolio:
     handler: handlers/updatePortfolio.main
